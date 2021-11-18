@@ -1,0 +1,148 @@
+@use 'variables'
+@use 'mixins'
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap')
+*
+    font-family: variables.$font--principal
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    outline: none
+    border: none
+    text-decoration: none
+    text-transform: capitalize
+    transition: .2s linear
+
+html
+    font-size: 65.5%
+    overflow-x: hidden
+    scroll-padding-top: 9rem
+    scroll-behavior: smooth
+    @media (max-width:991px)
+        font-size: 55%
+    &::webkit-scrollbar
+        width: .8rem
+
+    &::webkit-scrollbar-track
+        background: transparent
+
+    &::webkit-scrollbar-thumb
+        background: #fff
+        border-radius: 5rem
+
+body
+    background-color: variables.$color--secondary
+.btn
+    @include mixins.buttons
+    &:hover
+        letter-spacing: .2rem
+
+.header
+    background-color: variables.$color--secondary
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1.5rem 7%
+    border-bottom: variables.$border
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1000
+    @media (max-width:991px)
+        padding: 1.5rem 2rem
+    .logo
+        img
+            height: 6rem
+    .navbar
+        a
+            margin: 0 1rem
+            font-size: 1.6rem
+            color: #fff
+            @media (max-width:991px)
+                color: variables.$color--primary
+                display: block
+                margin: 1.5rem
+                padding: .5rem
+                font-size: 2rem
+            &:hover
+                color: variables.$color--tertiary
+                border-bottom: .1rem solid variables.$color--primary
+                padding-bottom: .5rem
+        @media (max-width:991px)
+                position: absolute
+                top: 100%
+                right: 0
+                background: #fff
+                width: 30rem
+                height: calc(100vh - 9.5rem)
+    .icons
+        div
+            font-size: 2.5rem
+            color: #fff
+            cursor: pointer
+            &:hover
+                color: variables.$color--tertiary
+    .search-form
+        position: absolute
+        top: 115%
+        right: 7%
+        background: #fff
+        width: 50rem
+        height: 5rem
+        display: flex
+        align-items: center
+        transform: scaleY(0)
+        transform-origin: top
+        input
+            height: 100%
+            width: 100%
+            font-size: 1.6rem
+            color: variables.$color--primary
+            padding: 1rem
+            text-transform: none
+        label
+            font-size: 2.2rem
+            margin-right: 1.5rem
+            color: variables.$color--primary
+            cursor: pointer
+            &:hover
+                color: variables.$color--tertiary
+    .cart-items-container
+        position: absolute
+        top: 100%
+        right: -100%
+        height: calc( 100vh - 9.5rem)
+        width: 35rem
+        background: #fff
+        padding: 0 1.5rem
+        .cart-item
+            position: relative
+            margin: 2rem 0
+            display: flex
+            align-items: center
+            gap: 1.5rem
+            .fa-times
+                position: absolute
+                top: 1rem
+                right: 1rem
+                font-size: 2rem
+                cursor: pointer
+                color: variables.$color--primary
+                &:hover
+                    color: variables.$color--tertiary
+            img
+                height: 7rem
+            h3
+                font-size: 2rem
+                color: variables.$color--primary
+                padding-bottom: .5rem
+            .price
+                font-size: 1.5rem
+                color: variables.$color--tertiary
+        .btn
+            width: 100%
+            text-align: center
+
+#menu-btn
+    @media (max-width:991px)
+        display: inline-block

@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+html {
+  font-size: 65.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+html::webkit-scrollbar {
+  width: 0.8rem;
+}
+html::webkit-scrollbar-track {
+  background: transparent;
+}
+html::webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5rem;
+}
+
+body {
+  background-color: #010103;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background: #d3ad7f;
+  cursor: pointer;
+}
+.btn:hover {
+  letter-spacing: 0.2rem;
+}
+
+.header {
+  background-color: #010103;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 7%;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+@media (max-width: 991px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+}
+.header .logo img {
+  height: 6rem;
+}
+.header .navbar a {
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: #fff;
+}
+@media (max-width: 991px) {
+  .header .navbar a {
+    color: #13131a;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+}
+.header .navbar a:hover {
+  color: #d3ad7f;
+  border-bottom: 0.1rem solid #13131a;
+  padding-bottom: 0.5rem;
+}
+@media (max-width: 991px) {
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    width: 30rem;
+    height: calc(100vh - 9.5rem);
+  }
+}
+.header .icons div {
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.header .icons div:hover {
+  color: #d3ad7f;
+}
+.header .search-form {
+  position: absolute;
+  top: 115%;
+  right: 7%;
+  background: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.header .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: #13131a;
+  padding: 1rem;
+  text-transform: none;
+}
+.header .search-form label {
+  font-size: 2.2rem;
+  margin-right: 1.5rem;
+  color: #13131a;
+  cursor: pointer;
+}
+.header .search-form label:hover {
+  color: #d3ad7f;
+}
+.header .cart-items-container {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: calc(100vh - 9.5rem);
+  width: 35rem;
+  background: #fff;
+  padding: 0 1.5rem;
+}
+.header .cart-items-container .cart-item {
+  position: relative;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.header .cart-items-container .cart-item .fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #13131a;
+}
+.header .cart-items-container .cart-item .fa-times:hover {
+  color: #d3ad7f;
+}
+.header .cart-items-container .cart-item img {
+  height: 7rem;
+}
+.header .cart-items-container .cart-item h3 {
+  font-size: 2rem;
+  color: #13131a;
+  padding-bottom: 0.5rem;
+}
+.header .cart-items-container .cart-item .price {
+  font-size: 1.5rem;
+  color: #d3ad7f;
+}
+.header .cart-items-container .btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  #menu-btn {
+    display: inline-block;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
