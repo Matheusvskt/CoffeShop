@@ -9,7 +9,6 @@
     outline: none
     border: none
     text-decoration: none
-    text-transform: capitalize
     transition: .2s linear
 
 html
@@ -19,22 +18,30 @@ html
     scroll-behavior: smooth
     @media (max-width:991px)
         font-size: 55%
-    &::webkit-scrollbar
+    @media (max-width:450px)
+        font-size: 50%
+    &::-webkit-scrollbar
         width: .8rem
 
-    &::webkit-scrollbar-track
+    &::-webkit-scrollbar-track
         background: transparent
 
-    &::webkit-scrollbar-thumb
+    &::-webkit-scrollbar-thumb
         background: #fff
         border-radius: 5rem
 
 body
     background-color: variables.$color--secondary
+
+section
+    @include mixins.sections
 .btn
     @include mixins.buttons
     &:hover
         letter-spacing: .2rem
+.heading
+    @include mixins.headings
+/*Header end*/
 
 .header
     background-color: variables.$color--secondary
@@ -58,7 +65,7 @@ body
             margin: 0 1rem
             font-size: 1.6rem
             color: #fff
-            @media (max-width:991px)
+            @media (max-width:768px)
                 color: variables.$color--primary
                 display: block
                 margin: 1.5rem
@@ -68,18 +75,21 @@ body
                 color: variables.$color--tertiary
                 border-bottom: .1rem solid variables.$color--primary
                 padding-bottom: .5rem
-        @media (max-width:991px)
-                position: absolute
-                top: 100%
+        @media (max-width:768px)
+            position: absolute
+            top: 100%
+            right: -100%
+            background: #fff
+            width: 30rem
+            height: calc(100vh - 9.5rem)
+            .active
                 right: 0
-                background: #fff
-                width: 30rem
-                height: calc(100vh - 9.5rem)
     .icons
         div
             font-size: 2.5rem
             color: #fff
             cursor: pointer
+            margin-left: 2rem
             &:hover
                 color: variables.$color--tertiary
     .search-form
@@ -93,6 +103,10 @@ body
         align-items: center
         transform: scaleY(0)
         transform-origin: top
+        @media (max-width:768px)
+            width: 100%
+    .active
+        transform: scaleY(1)
         input
             height: 100%
             width: 100%
@@ -115,6 +129,8 @@ body
         width: 35rem
         background: #fff
         padding: 0 1.5rem
+    .active
+        right: 0
         .cart-item
             position: relative
             margin: 2rem 0
@@ -142,7 +158,273 @@ body
         .btn
             width: 100%
             text-align: center
-
 #menu-btn
-    @media (max-width:991px)
+    display: none
+    @media (max-width:768px)
         display: inline-block
+
+/*Header end*/
+/*Home section start*/
+.home
+    min-height: 100vh
+    display: flex
+    align-items: center
+    background: url(../images/cup-shop-4.png) no-repeat
+    background-size: cover
+    background-position: center
+    position: relative
+    top: 5rem
+    @media (max-width:768px)
+        min-height: 90vh
+        background-position: left
+        text-align: center
+        justify-content: center
+    .content
+        max-width: 60rem
+        h3
+            font-size: 6rem
+            text-transform: uppercase
+            color: #fff
+            @media (max-width:768px)
+                font-size: 4.5rem
+        p
+            font-size: 2rem
+            font-weight: lighter
+            line-height: 1.8
+            padding: 1rem 0
+            color: #eee
+            @media (max-width:768px)
+                font-size: 1.5rem
+/*Home section end*/
+
+/*about section start*/
+.about
+    margin-top: 4rem
+    @media (max-width:768px)
+    .row
+        display: flex
+        align-items: center
+        background: variables.$color--primary
+        flex-wrap: wrap
+        .image
+            flex: 1 1 45rem
+            img
+                width: 100%
+        .content
+            flex: 1 1 45rem
+            padding: 2rem
+            h3
+                font-size: 3rem
+                color: #fff
+            p
+                font-size: 1.6rem
+                color: #ccc
+                padding: 1rem 0
+                line-height: 1.8
+
+/*about section end*/
+/*menu section start*/
+.menu
+    .box-container
+        @include mixins.container
+        .box
+            padding: 5rem
+            text-align: center
+            border: variables.$border
+            &:hover
+                background: #fff
+                &:hover > *
+                    color: variables.$color--primary
+
+            img
+                height: 10rem
+
+            h3
+                color: #fff
+                font-size: 2rem
+                padding: .1rem 0
+            .price
+                color: #fff
+                font-size: 2.5rem
+                padding: .5rem 0
+                span
+                    font-size: 1.5rem
+                    text-decoration: line-through
+                    font-weight: lighter
+/*menu section end*/
+
+/*Section products start*/
+.products
+    .box-container
+        @include mixins.container
+        .box
+            text-align: center
+            border: variables.$border
+            padding: 5rem
+            .icons
+                a
+                    height: 5rem
+                    width: 5rem
+                    line-height: 5rem
+                    font-size: 2rem
+                    border: variables.$border
+                    color: #fff
+                    margin: .3rem
+                    &:hover
+                        background: variables.$color--tertiary
+            .image
+                padding: 2.5rem 0
+                img
+                    height: 25rem
+            .content
+                h3
+                    color: #fff
+                    font-size: 2.5rem
+                .stars
+                    padding: 1.5rem
+                    i
+                        font-size: 1.7rem
+                        color: variables.$color--tertiary
+                .price
+                    color: #fff
+                    font-size: 2.5rem
+                    span
+                        text-decoration: line-through
+                        font-weight: lighter
+                        font-size: 1.5rem
+/*Section products end*/
+/*review section starts*/
+.review
+    .box-container
+        @include mixins.container
+        .box
+            border: variables.$border
+            text-align: center
+            padding: 3rem 2rem
+            p
+                font-size: 1.5rem
+                line-height: 1.8rem
+                color: #ccc
+                padding: 2rem 0
+            .user
+                height: 7rem
+                width: 7rem
+                border-radius: 50%
+                object-fit: cover
+            h3
+                padding: 1rem 0
+                font-size: 2rem
+                color: #fff
+            .stars
+                i
+                    font-size: 1.5rem
+                    color: variables.$color--tertiary
+.contact
+    .row
+        display: flex
+        background: variables.$color--primary
+        flex-wrap: wrap
+        gap: 1rem
+        .map
+            flex: 1 1 45rem
+            width: 100%
+            object-fit: cover
+        form
+            flex: 1 1 45rem
+            padding: 5rem 2rem
+            text-align: center
+            h3
+                text-transform: uppercase
+                font-size: 3.5rem
+                color: #fff
+            .inputBox
+                display: flex
+                align-items: center
+                margin-top: 2rem
+                margin-bottom: 2rem
+                background: variables.$color--secondary
+                border: variables.$border
+                span
+                    color: #fff
+                    font-size: 2rem
+                    padding-left: 2rem
+                input
+                    width: 100%
+                    padding: 2rem
+                    font-size: 1.7rem
+                    color: #fff
+                    text-transform: none
+                    background: none
+/*review section end*/
+
+/*blogs section starts*/
+.blogs
+    .box-container
+        @include mixins.container
+        .box
+            border: variables.$border
+            .image
+                height: 25rem
+                overflow: hidden
+                width: 100%
+                img
+                    height: 100%
+                    object-fit: cover
+                    width: 100%
+                    &:hover
+                        transform: scale(1.2)
+        .content
+            padding: 2rem
+            .title
+                font-size: 2.5rem
+                line-height: 1.5
+                color: #fff
+                &:hover
+                    color: variables.$color--tertiary
+            span
+                color: variables.$color--tertiary
+                display: block
+                padding-top: 1rem
+                font-size: 2rem
+            p
+                font-size: 1.6rem
+                line-height: 1.8
+                color: #ccc
+                padding: 1rem 0
+.footer
+    background: variables.$color--primary
+    text-align: center
+    .share
+        padding: 1rem 0
+        a
+            height: 5rem
+            width: 5rem
+            line-height: 5rem
+            font-size: 2rem
+            color: #fff
+            border: variables.$border
+            margin: .3rem
+            border-radius: 50%
+            &:hover
+                background-color: variables.$color--tertiary
+    .links
+        display: flex
+        justify-content: center
+        flex-wrap: wrap
+        padding: 2rem 0
+        gap: 1rem
+        a
+            padding: .7rem 2rem
+            color: #fff
+            border: variables.$border
+            font-size: 2rem
+            &:hover
+                background-color: variables.$color--tertiary
+.credit
+    font-size: 2rem
+    color: #fff
+    font-weight: lighter
+    padding: 1.5rem
+    span
+        color: variables.$color--tertiary
+/*blogs section End*/

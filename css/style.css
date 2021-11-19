@@ -7,7 +7,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   transition: 0.2s linear;
 }
 
@@ -22,19 +21,33 @@ html {
     font-size: 55%;
   }
 }
-html::webkit-scrollbar {
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+html::-webkit-scrollbar {
   width: 0.8rem;
 }
-html::webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: transparent;
 }
-html::webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5rem;
 }
 
 body {
   background-color: #010103;
+}
+
+section {
+  padding: 2rem 7%;
+}
+@media (max-width: 991px) {
+  section {
+    padding: 2rem;
+  }
 }
 
 .btn {
@@ -50,6 +63,19 @@ body {
   letter-spacing: 0.2rem;
 }
 
+.heading {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  padding-bottom: 3.5rem;
+  font-size: 4rem;
+}
+.heading span {
+  color: #d3ad7f;
+  text-transform: uppercase;
+}
+
+/*Header end*/
 .header {
   background-color: #010103;
   display: flex;
@@ -76,7 +102,7 @@ body {
   font-size: 1.6rem;
   color: #fff;
 }
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .header .navbar a {
     color: #13131a;
     display: block;
@@ -90,20 +116,24 @@ body {
   border-bottom: 0.1rem solid #13131a;
   padding-bottom: 0.5rem;
 }
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .header .navbar {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -100%;
     background: #fff;
     width: 30rem;
     height: calc(100vh - 9.5rem);
+  }
+  .header .navbar .active {
+    right: 0;
   }
 }
 .header .icons div {
   font-size: 2.5rem;
   color: #fff;
   cursor: pointer;
+  margin-left: 2rem;
 }
 .header .icons div:hover {
   color: #d3ad7f;
@@ -120,7 +150,15 @@ body {
   transform: scaleY(0);
   transform-origin: top;
 }
-.header .search-form input {
+@media (max-width: 768px) {
+  .header .search-form {
+    width: 100%;
+  }
+}
+.header .active {
+  transform: scaleY(1);
+}
+.header .active input {
   height: 100%;
   width: 100%;
   font-size: 1.6rem;
@@ -128,13 +166,13 @@ body {
   padding: 1rem;
   text-transform: none;
 }
-.header .search-form label {
+.header .active label {
   font-size: 2.2rem;
   margin-right: 1.5rem;
   color: #13131a;
   cursor: pointer;
 }
-.header .search-form label:hover {
+.header .active label:hover {
   color: #d3ad7f;
 }
 .header .cart-items-container {
@@ -146,14 +184,17 @@ body {
   background: #fff;
   padding: 0 1.5rem;
 }
-.header .cart-items-container .cart-item {
+.header .active {
+  right: 0;
+}
+.header .active .cart-item {
   position: relative;
   margin: 2rem 0;
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-.header .cart-items-container .cart-item .fa-times {
+.header .active .cart-item .fa-times {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -161,30 +202,372 @@ body {
   cursor: pointer;
   color: #13131a;
 }
-.header .cart-items-container .cart-item .fa-times:hover {
+.header .active .cart-item .fa-times:hover {
   color: #d3ad7f;
 }
-.header .cart-items-container .cart-item img {
+.header .active .cart-item img {
   height: 7rem;
 }
-.header .cart-items-container .cart-item h3 {
+.header .active .cart-item h3 {
   font-size: 2rem;
   color: #13131a;
   padding-bottom: 0.5rem;
 }
-.header .cart-items-container .cart-item .price {
+.header .active .cart-item .price {
   font-size: 1.5rem;
   color: #d3ad7f;
 }
-.header .cart-items-container .btn {
+.header .active .btn {
   width: 100%;
   text-align: center;
 }
 
-@media (max-width: 991px) {
+#menu-btn {
+  display: none;
+}
+@media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
   }
 }
+
+/*Header end*/
+/*Home section start*/
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(../images/cup-shop-4.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 5rem;
+}
+@media (max-width: 768px) {
+  .home {
+    min-height: 90vh;
+    background-position: left;
+    text-align: center;
+    justify-content: center;
+  }
+}
+.home .content {
+  max-width: 60rem;
+}
+.home .content h3 {
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .home .content h3 {
+    font-size: 4.5rem;
+  }
+}
+.home .content p {
+  font-size: 2rem;
+  font-weight: lighter;
+  line-height: 1.8;
+  padding: 1rem 0;
+  color: #eee;
+}
+@media (max-width: 768px) {
+  .home .content p {
+    font-size: 1.5rem;
+  }
+}
+
+/*Home section end*/
+/*about section start*/
+.about {
+  margin-top: 4rem;
+}
+.about .row {
+  display: flex;
+  align-items: center;
+  background: #13131a;
+  flex-wrap: wrap;
+}
+.about .row .image {
+  flex: 1 1 45rem;
+}
+.about .row .image img {
+  width: 100%;
+}
+.about .row .content {
+  flex: 1 1 45rem;
+  padding: 2rem;
+}
+.about .row .content h3 {
+  font-size: 3rem;
+  color: #fff;
+}
+.about .row .content p {
+  font-size: 1.6rem;
+  color: #ccc;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+/*about section end*/
+/*menu section start*/
+.menu .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.menu .box-container .box {
+  padding: 5rem;
+  text-align: center;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+.menu .box-container .box:hover {
+  background: #fff;
+}
+.menu .box-container .box:hover:hover > * {
+  color: #13131a;
+}
+.menu .box-container .box img {
+  height: 10rem;
+}
+.menu .box-container .box h3 {
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.1rem 0;
+}
+.menu .box-container .box .price {
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 0.5rem 0;
+}
+.menu .box-container .box .price span {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  font-weight: lighter;
+}
+
+/*menu section end*/
+/*Section products start*/
+.products .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.products .box-container .box {
+  text-align: center;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  padding: 5rem;
+}
+.products .box-container .box .icons a {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  margin: 0.3rem;
+}
+.products .box-container .box .icons a:hover {
+  background: #d3ad7f;
+}
+.products .box-container .box .image {
+  padding: 2.5rem 0;
+}
+.products .box-container .box .image img {
+  height: 25rem;
+}
+.products .box-container .box .content h3 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+.products .box-container .box .content .stars {
+  padding: 1.5rem;
+}
+.products .box-container .box .content .stars i {
+  font-size: 1.7rem;
+  color: #d3ad7f;
+}
+.products .box-container .box .content .price {
+  color: #fff;
+  font-size: 2.5rem;
+}
+.products .box-container .box .content .price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+/*Section products end*/
+/*review section starts*/
+.review .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.review .box-container .box {
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.review .box-container .box p {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  color: #ccc;
+  padding: 2rem 0;
+}
+.review .box-container .box .user {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review .box-container .box h3 {
+  padding: 1rem 0;
+  font-size: 2rem;
+  color: #fff;
+}
+.review .box-container .box .stars i {
+  font-size: 1.5rem;
+  color: #d3ad7f;
+}
+
+.contact .row {
+  display: flex;
+  background: #13131a;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.contact .row form h3 {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  color: #fff;
+}
+.contact .row form .inputBox {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #010103;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+.contact .row form .inputBox span {
+  color: #fff;
+  font-size: 2rem;
+  padding-left: 2rem;
+}
+.contact .row form .inputBox input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  color: #fff;
+  text-transform: none;
+  background: none;
+}
+
+/*review section end*/
+/*blogs section starts*/
+.blogs .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.blogs .box-container .box {
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+.blogs .box-container .box .image {
+  height: 25rem;
+  overflow: hidden;
+  width: 100%;
+}
+.blogs .box-container .box .image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.blogs .box-container .box .image img:hover {
+  transform: scale(1.2);
+}
+.blogs .box-container .content {
+  padding: 2rem;
+}
+.blogs .box-container .content .title {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  color: #fff;
+}
+.blogs .box-container .content .title:hover {
+  color: #d3ad7f;
+}
+.blogs .box-container .content span {
+  color: #d3ad7f;
+  display: block;
+  padding-top: 1rem;
+  font-size: 2rem;
+}
+.blogs .box-container .content p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #ccc;
+  padding: 1rem 0;
+}
+
+.footer {
+  background: #13131a;
+  text-align: center;
+}
+.footer .share {
+  padding: 1rem 0;
+}
+.footer .share a {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  color: #fff;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  margin: 0.3rem;
+  border-radius: 50%;
+}
+.footer .share a:hover {
+  background-color: #d3ad7f;
+}
+.footer .links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+.footer .links a {
+  padding: 0.7rem 2rem;
+  color: #fff;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+}
+.footer .links a:hover {
+  background-color: #d3ad7f;
+}
+
+.credit {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: lighter;
+  padding: 1.5rem;
+}
+.credit span {
+  color: #d3ad7f;
+}
+
+/*blogs section End*/
 
 /*# sourceMappingURL=style.css.map */

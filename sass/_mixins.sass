@@ -9,3 +9,22 @@
     background: variables.$color--tertiary
     cursor: pointer
 
+@mixin sections
+    padding: 2rem 7%
+    @media (max-width:991px)
+        padding: 2rem
+
+@mixin headings
+    text-align: center
+    color: #fff
+    text-transform: uppercase
+    padding-bottom: 3.5rem
+    font-size: 4rem
+    span
+        color: variables.$color--tertiary
+        text-transform: uppercase
+        
+@mixin container
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr))
+    gap: 1.5rem
